@@ -1,0 +1,115 @@
+permission:
+  no-permission: "&cSem permissão."
+  bypass: "&cVocê não pode executar esse comando nesse jogador."
+  cannot-execute-youself: "&cVocê não pode executar esse comando em si mesmo."
+  error: "&cAlgo de inesperado ocorreu"
+adminmode:
+  enabled: "&aModo admin &eativado"
+  disabled: "&aModo admin &edesativado"
+  items:
+    rotate: "&eRotacionar"
+    jail: "&cPrender"
+    vanish: "&9Vanish"
+    cps: "&aCPS"
+    empty: "&cAdmin Mode"
+clearchat: "&cChat limpo por %player_name%"
+clear:
+  success: "&aSeu inventário foi limpo com sucesso."
+  other:
+    alert: "&aSeu inventário foi limpo por &e%player_name%&a."
+    success: "&aVocê limpou o inventário de &e%player_name% &acom sucesso."
+cps:
+  waiting: "&cAguarde enquanto a analise é realizada."
+  analyzing: "&cAnalisando %player_name%&c..."
+  gravity:
+    low: "&aNormal"
+    middle: "&6Média"
+    high: "&4Alta"
+  success:
+    - "\n&c&m=============================="
+    - "&fCPS de %player_name%: %sc_cps%"
+    - "&fGravidade: %sc_gravity%"
+    - "&c&m==============================\n"
+crash:
+  success: "&aComando executando com sucesso no jogador: &e%player_name%"
+enchant:
+  item-invalid: "&cItem inválido."
+  enchant-invalid: "&cEncantamento inválido."
+  success: "&aVocê encantou %sc_item% com %sc_enchant%"
+enderchest:
+  success: "&aVocê abriu seu enderchest."
+  other:
+    success: "&aVocê abriu o enderchest de &e%player_name%&a."
+fly:
+  enabled: "&aFly &eativado &acom sucesso."
+  disabled: "&aFly &edesativado &acom sucesso."
+  other:
+    enabled: "&aFly de %player_name% &eativado &acom sucesso."
+    disabled: "&aFly de %player_name% &edesativado &acom sucesso."
+gamemode:
+  invalid: "&cModo de jogo inválido"
+  actual: "&cO jogador já se encontra no modo &e%sc_gm%"
+  success: "&aSeu modo de jogo foi alterado para &e%sc_gm%"
+god:
+  enabled: "&aGod &eativado&a com sucesso."
+  disabled: "&aGod &edesativado&a com sucesso."
+  other:
+    enabled: "&aGod de %player_name% &eativado&a com sucesso."
+    disabled: "&aGod de %player_name% &edesativado&a com sucesso."
+hat:
+  invalid: "&aChapéu inválido"
+  success: "&aChapéu alterado"
+infoplayer:
+  - "\n&c&m==================================="
+  - "&cIP: &f%sc_ip%"
+  - "&cNick: &f%player_name%"
+  - "&cCidade: &f%sc_city%"
+  - "&cEstado: &f%sc_region%"
+  - "&cPaís: &f%sc_country%"
+  - "&cProvedor: &f%sc_provider%"
+  - "&cTipo: &f%sc_type%"
+  - "&c&m===================================\n"
+invsee:
+  open: "&aVocê abriu o inventário de &e%player_name%&a."
+jail:
+  time:
+    seconds: "segundos"
+    minute: "minuto"
+    minutes: "minutos"
+    hour: "hora"
+    hours: "horas"
+  jailed: "&cO jogador &f%player_name% &cfoi preso por &f%sc_owner%"
+  unjail: "&f%player_name% &cfoi solto por &f%sc_owner% &capós &f%sc_time%"
+  disconnect: "&f%player_name% &cdesconectou após &f%sc_time% &cenquanto estava preso"
+  unavailable: "&cNão possui jaula disponível."
+  jailed-alert:
+    - "\n&4[Alerta] &cVocê foi preso, aguarde as instruções de &f%player_name%&c para prosseguir."
+    - "&cO ato de desconectar do servidor irá resultar em banimento por 60d\n"
+  create: "&aJaula criada com sucesso."
+  remove: "&aJaula #%sc_id% removida com sucesso."
+  list: "[&aId: &e#%sc_id%, &aMundo: &e%sc_world%, &aJogador: &e%sc_player%](/jail tp %d hover=&cTeleportar #%d)"
+  empty: "Vazio"
+  not-exists: "&eNenhuma jaula encontrada."
+  not-found: "&cJaula não encontrada."
+  teleport: "&aTeleportado com sucesso para jaula %sc_id%."
+  disable-cmds: "&cVocê não pode usar comandos enquanto estiver preso."
+night:
+  enabled: "&aModo noturno &eativado"
+  disabled: "&aModo noturno &edesativado"
+reload: "&aConfigurações e mensagens recarregadas com sucesso"
+spawn:
+  undefined: "&aO local não foi definido"
+  defined: "&aSpawn definido com sucesso."
+speed:
+  invalid-value: "&cValor inválido"
+  walk: "&aVelocidade alterada para %sc_velocity%"
+  fly: "&aVelocidade fly alterada para %sc_velocity%"
+sudo: "&aComando executado no jogador &e%player_name%"
+teleport:
+  tp: "&aTeleportado para &e%player_name%&a."
+  tphere: "&aVocê teleportou &e%player_name%&a até você."
+  tploc: "&aTeleportado com sucesso."
+vanish:
+  enabled: "&aVanish &eativado &acom sucesso."
+  disabled: "&aVanish &edesativado &acom sucesso."
+join-message: "&7[&a+&7] &e%player_name%&a entrou"

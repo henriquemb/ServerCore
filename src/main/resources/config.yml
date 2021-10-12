@@ -1,0 +1,58 @@
+database:
+  host: ""
+  port: ""
+  name: ""
+  username: ""
+  password: ""
+  ssl: false
+spawn-command-on-join: false
+list:
+  show-empty: false
+  ignore:
+    - 'zToxicDeath_'
+    - '_xB0ss'
+  roles:
+    admin:
+      permission: 'servercore.list.administrador'
+      name: 'Admin'
+    mod:
+      permission: 'servercore.list.moderador'
+      name: 'Mod'
+    helper:
+      permission: 'servercore.list.ajudante'
+      name: 'Ajudante'
+    vip:
+      permission: 'servercore.list.vip'
+      name: 'Vip'
+    youtuber:
+      permission: 'servercore.list.youtuber'
+      name: 'Youtuber'
+enable-commands:
+  adminmode: true
+  broadcast: true
+  clearchat: true
+  clear: true
+  cps: true
+  craftingtable: true
+  crash: true
+  enchant: true
+  enderchest: true
+  fly: true
+  gamemode: true
+  god: true
+  hat: true
+  infoplayer: true
+  invsee: true
+  jail: true
+  list: true
+  night: true
+  say: true
+  spawn: true
+  speed: true
+  sudo: true
+  teleport:
+    tp: true
+    tphere: true
+    tploc: true
+  thor: true
+  vanish: true

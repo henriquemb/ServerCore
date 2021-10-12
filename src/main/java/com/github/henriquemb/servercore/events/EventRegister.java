@@ -1,0 +1,20 @@
+package com.github.henriquemb.servercore.events;
+
+import com.github.henriquemb.servercore.Main;
+import org.bukkit.plugin.PluginManager;
+
+public class EventRegister {
+    public EventRegister(Main plugin) {
+        PluginManager pm = plugin.getServer().getPluginManager();
+
+        pm.registerEvents(new AdminModeListener(), plugin);
+        pm.registerEvents(new PlayerQuitListener(), plugin);
+        pm.registerEvents(new PlayerJoinListener(), plugin);
+        pm.registerEvents(new PlayerFlyListener(), plugin);
+        pm.registerEvents(new GodListener(), plugin);
+        pm.registerEvents(new CpsListener(), plugin);
+
+        if (Main.getMain().getDbCoonection() != null)
+            pm.registerEvents(new JailListener(), plugin);
+    }
+}
