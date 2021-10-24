@@ -1,0 +1,28 @@
+adminmode: true
+broadcast: true
+clearchat: true
+clear: true
+cps: true
+craftingtable: true
+crash: true
+enchant: true
+enderchest: true
+fly: true
+gamemode: true
+god: true
+hat: true
+infoplayer: true
+invsee: true
+jail: true
+list: true
+night: true
+say: true
+spawn: true
+speed: true
+sudo: true
+teleport:
+  tp: true
+  tphere: true
+  tploc: true
+thor: true
+vanish: true

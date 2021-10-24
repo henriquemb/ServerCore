@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Connection {
+    private final Main pl = Main.getMain();
     private static final FileConfiguration config = Main.getMain().getConfig();
     private EntityManagerFactory emf = null;
     private EntityManager em = null;
@@ -26,18 +27,30 @@ public class Connection {
 
     private Map<String, Object> getConfig() {
         Map<String, Object> emfConfig = new HashMap<>();
-        String host = config.getString("database.host");
-        String port = config.getString("database.port");
-        String name = config.getString("database.name");
-        String username = config.getString("database.username");
-        String password = config.getString("database.password");
-        Boolean ssl = config.getBoolean("database.ssl");
 
-        String url = String.format("jdbc:mysql://%s:%s/%s?useSSL=%s&amp;serverTimezone=America/Sao_Paulo",
-                host, port, name, ssl);
+        String url;
+        String dialect;
+
+        if (config.getBoolean("database.mysql")) {
+            String host = config.getString("database.host");
+            String port = config.getString("database.port");
+            String name = config.getString("database.name");
+            String username = config.getString("database.username");
+            String password = config.getString("database.password");
+            Boolean ssl = config.getBoolean("database.ssl");
+            url = String.format("jdbc:mysql://%s:%s/%s?useSSL=%s&amp;serverTimezone=America/Sao_Paulo",
+                    host, port, name, ssl);
+            dialect = "org.hibernate.dialect.MySQL8Dialect";
+            emfConfig.put("javax.persistence.jdbc.user", username);
+            emfConfig.put("javax.persistence.jdbc.password", password);
+        }
+        else {
+            dialect = "org.hibernate.dialect.SQLiteDialect";
+            url = String.format("jdbc:sqlite:%s/database.db", pl.getDataFolder().getAbsolutePath());
+        }
+
+        emfConfig.put("hibernate.dialect", dialect);
         emfConfig.put("javax.persistence.jdbc.url", url);
-        emfConfig.put("javax.persistence.jdbc.user", username);
-        emfConfig.put("javax.persistence.jdbc.password", password);
 
         return emfConfig;
     }

@@ -87,7 +87,7 @@ jail:
     - "&cO ato de desconectar do servidor irá resultar em banimento por 60d\n"
   create: "&aJaula criada com sucesso."
   remove: "&aJaula #%sc_id% removida com sucesso."
-  list: "[&aId: &e#%sc_id%, &aMundo: &e%sc_world%, &aJogador: &e%sc_player%](/jail tp %d hover=&cTeleportar #%d)"
+  list: "&aId: &e#%sc_id%, &aMundo: &e%sc_world%, &aJogador: &e%sc_player%"
   empty: "Vazio"
   not-exists: "&eNenhuma jaula encontrada."
   not-found: "&cJaula não encontrada."

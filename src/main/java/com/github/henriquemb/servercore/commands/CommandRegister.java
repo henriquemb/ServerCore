@@ -11,15 +11,10 @@ public class CommandRegister {
 
     @SneakyThrows
     private void onActive(BaseCommand command, String path) {
-        String p = "enable-commands." + path;
-        if (path == null || pl.getConfig().getBoolean(p)) manager.registerCommand(command);
+        if (path == null || pl.getCommands().getBoolean(path)) manager.registerCommand(command);
     }
 
     public CommandRegister() {
-        if (pl.getDbCoonection() != null)
-            onActive(new JailCommand(), "jail");
-
-        onActive(new AdminModeCommand(), "adminmode");
         onActive(new BroadcastCommand(), "broadcast");
         onActive(new ClearChatCommand(), "clearchat");
         onActive(new ClearCommand(), "clear");
@@ -45,5 +40,11 @@ public class CommandRegister {
         onActive(new TeleportLocationCommand(), "teleport.tploc");
         onActive(new ThorCommand(), "thor");
         onActive(new VanishCommand(), "vanish");
+
+        if (pl.getDbCoonection() != null)
+            onActive(new JailCommand(), "jail");
+
+        if (pl.getServer().getPluginManager().getPlugin("Vulcan") != null)
+            onActive(new AdminModeCommand(), "adminmode");
     }
 }

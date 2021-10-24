@@ -33,6 +33,10 @@ public final class Main extends JavaPlugin {
     @Getter
     private final FileConfiguration locations = YamlConfiguration.loadConfiguration(getLocalesFile());
     @Getter @Setter
+    private File commandsFile = new File(getDataFolder(), "commands.yml");
+    @Getter @Setter
+    private FileConfiguration commands = YamlConfiguration.loadConfiguration(getCommandsFile());
+    @Getter @Setter
     private File messagesFile = new File(getDataFolder(), "messages.yml");
     @Getter @Setter
     private FileConfiguration messages = YamlConfiguration.loadConfiguration(getMessagesFile());
@@ -51,6 +55,8 @@ public final class Main extends JavaPlugin {
 
         if (!getLocalesFile().exists())
             saveResource("locales.yml", false);
+        if (!getCommandsFile().exists())
+            saveResource("commands.yml", false);
         if (!getMessagesFile().exists())
             saveResource("messages.yml", false);
 
@@ -61,8 +67,8 @@ public final class Main extends JavaPlugin {
         }
         catch (Exception e) {
             getSender().sendMessage("[Error] Database not connected");
+            e.printStackTrace();
         }
-
 
         CommandCompletions completions = new CommandCompletions(this);
         CommandRegister commands = new CommandRegister();
