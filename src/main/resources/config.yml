@@ -7,6 +7,24 @@ database:
   username: ""
   password: ""
   ssl: false
+adminmode:
+  items:
+    rotate:
+      name: "&eRotacionar"
+      id: 'SLIME_BALL'
+    jail:
+      name: "&cPrender"
+      id: 'NETHER_STAR'
+    vanish:
+      name: "&9Vanish"
+      id: 'POTION'
+    cps:
+      name: "&aCPS"
+      id: 'BLAZE_ROD'
+    glass:
+      name: "&cAdmin Mode"
+      id: 'STAINED_GLASS_PANE'
+      data: 15
 list:
   show-empty: false
   ignore:

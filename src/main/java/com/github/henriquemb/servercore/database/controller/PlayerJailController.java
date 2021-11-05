@@ -1,7 +1,6 @@
 package com.github.henriquemb.servercore.database.controller;
 
 import com.github.henriquemb.servercore.Main;
-import com.github.henriquemb.servercore.database.Connection;
 import com.github.henriquemb.servercore.database.model.Jail;
 import com.github.henriquemb.servercore.database.model.PlayerJail;
 
@@ -11,7 +10,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class PlayerJailController {
-    private static final EntityManager em = Main.getMain().getDbCoonection();
+    private static final EntityManager em = Main.getMain().getDbConnection();
 
     public void create(String player, Jail jail, boolean active) {
         try {

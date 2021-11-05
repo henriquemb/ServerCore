@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class AdminModeListener implements Listener {
     private final AdminModeItems modeItems = new AdminModeItems();
+    private final Main pl = Main.getMain();
     private final Model m = Main.getModel();
 
     @EventHandler
@@ -27,7 +28,8 @@ public class AdminModeListener implements Listener {
 
         ItemStack itemInHand = p.getItemInHand();
         if (modeItems.getItem("rotate").equals(itemInHand)) {
-            p.performCommand(String.format("vulcan rotate %s", t.getName()));
+            if (pl.getServer().getPluginManager().getPlugin("Vulcan") != null)
+                p.performCommand(String.format("vulcan rotate %s", t.getName()));
         } else if (modeItems.getItem("freeze").equals(itemInHand)) {
             p.performCommand(String.format("jail %s", t.getName()));
         } else if (modeItems.getItem("cps").equals(itemInHand)) {

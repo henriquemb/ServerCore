@@ -6,12 +6,6 @@ permission:
 adminmode:
   enabled: "&aModo admin &eativado"
   disabled: "&aModo admin &edesativado"
-  items:
-    rotate: "&eRotacionar"
-    jail: "&cPrender"
-    vanish: "&9Vanish"
-    cps: "&aCPS"
-    empty: "&cAdmin Mode"
 clearchat: "&cChat limpo por %player_name%"
 clear:
   success: "&aSeu inventário foi limpo com sucesso."

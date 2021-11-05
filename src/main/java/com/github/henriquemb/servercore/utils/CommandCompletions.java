@@ -24,7 +24,7 @@ public class CommandCompletions {
 
         plugin.getManager().getCommandCompletions().registerCompletion("enchants", e -> bEnchant.build());
 
-        if (Main.getMain().getDbCoonection() != null) {
+        if (Main.getMain().getDbConnection() != null) {
             ImmutableList.Builder<String> bJail = ImmutableList.builder();
             for (Jail j : new JailController().findAll()) {
                 bJail.add(String.valueOf(j.getId()));

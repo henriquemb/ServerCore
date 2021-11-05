@@ -27,7 +27,7 @@ public final class Main extends JavaPlugin {
     @Getter @Setter
     private PaperCommandManager manager;
     @Getter @Setter
-    private EntityManager dbCoonection;
+    private EntityManager dbConnection;
     @Getter
     private final File localesFile = new File(getDataFolder(), "locales.yml");
     @Getter
@@ -63,7 +63,7 @@ public final class Main extends JavaPlugin {
         try {
             Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
             Connection conn = new Connection();
-            setDbCoonection(conn.getManager());
+            setDbConnection(conn.getManager());
         }
         catch (Exception e) {
             getSender().sendMessage("[Error] Database not connected");
@@ -77,7 +77,7 @@ public final class Main extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getDbCoonection().close();
+        getDbConnection().close();
         Bukkit.getScheduler().cancelTasks(this);
     }
 }

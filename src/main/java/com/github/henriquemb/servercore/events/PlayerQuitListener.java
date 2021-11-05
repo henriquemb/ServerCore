@@ -28,11 +28,11 @@ public class PlayerQuitListener implements Listener {
 
         String time = "";
 
-        if (h == 1) time += String.format("%d %s", h, config.getString("jail.time.hour"));
-        if (h > 1) time += String.format("%d %s", h, config.getString("jail.time.hours"));
+        if (h == 1) time += String.format("%d %s ", h, config.getString("jail.time.hour"));
+        if (h > 1) time += String.format("%d %s ", h, config.getString("jail.time.hours"));
 
-        if (min == 1) time += String.format("%d %s", h, config.getString("jail.time.minute"));
-        if (min > 1) time += String.format("%d %s", h, config.getString("jail.time.minutes"));
+        if (min == 1) time += String.format("%d %s ", h, config.getString("jail.time.minute"));
+        if (min > 1) time += String.format("%d %s ", h, config.getString("jail.time.minutes"));
 
         if (s > 0) time += String.format("%d %s", s, config.getString("jail.time.seconds"));
 
@@ -43,7 +43,7 @@ public class PlayerQuitListener implements Listener {
     public void onQuit(org.bukkit.event.player.PlayerQuitEvent e) {
         Player p = e.getPlayer();
 
-        if (Main.getMain().getDbCoonection() != null) {
+        if (Main.getMain().getDbConnection() != null) {
             PlayerJailController pjController = new PlayerJailController();
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
             sdf.setTimeZone(TimeZone.getTimeZone("GMT"));

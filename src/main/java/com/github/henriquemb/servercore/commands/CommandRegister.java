@@ -41,7 +41,7 @@ public class CommandRegister {
         onActive(new ThorCommand(), "thor");
         onActive(new VanishCommand(), "vanish");
 
-        if (pl.getDbCoonection() != null)
+        if (pl.getDbConnection() != null)
             onActive(new JailCommand(), "jail");
 
         if (pl.getServer().getPluginManager().getPlugin("Vulcan") != null)

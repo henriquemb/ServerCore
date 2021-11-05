@@ -15,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 
 @CommandAlias("adminmode|am") @CommandPermission("servercore.adminmode")
 public class AdminModeCommand extends BaseCommand {
+    private final Main pl = Main.getMain();
     private final Model m = Main.getModel();
     private static final FileConfiguration config = Main.getMain().getMessages();
     private final AdminModeItems modeItems = new AdminModeItems();
@@ -45,14 +46,18 @@ public class AdminModeCommand extends BaseCommand {
     }
 
     private void loadInventory(Player p) {
-        p.getInventory().setItem(0, modeItems.getItem("fence"));
-        p.getInventory().setItem(1, modeItems.getItem("rotate"));
-        p.getInventory().setItem(2, modeItems.getItem("fence"));
+        p.getInventory().setItem(0, modeItems.getItem("empty"));
+        p.getInventory().setItem(2, modeItems.getItem("empty"));
         p.getInventory().setItem(3, modeItems.getItem("cps"));
-        p.getInventory().setItem(4, modeItems.getItem("fence"));
-        p.getInventory().setItem(5, modeItems.getItem("freeze"));
-        p.getInventory().setItem(6, modeItems.getItem("fence"));
+        p.getInventory().setItem(4, modeItems.getItem("empty"));
+        p.getInventory().setItem(5, modeItems.getItem("jail"));
+        p.getInventory().setItem(6, modeItems.getItem("empty"));
         p.getInventory().setItem(7, modeItems.getItem("vanish"));
-        p.getInventory().setItem(8, modeItems.getItem("fence"));
+        p.getInventory().setItem(8, modeItems.getItem("empty"));
+
+        if (pl.getServer().getPluginManager().getPlugin("Vulcan") != null) {
+            p.getInventory().setItem(1, modeItems.getItem("rotate"));
+        }
+        else p.getInventory().setItem(1, modeItems.getItem("empty"));
     }
 }

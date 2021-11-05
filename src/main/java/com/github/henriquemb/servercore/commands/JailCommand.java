@@ -36,11 +36,11 @@ public class JailCommand extends BaseCommand {
 
         String time = "";
 
-        if (h == 1) time += String.format("%d %s", h, config.getString("jail.time.hour"));
-        if (h > 1) time += String.format("%d %s", h, config.getString("jail.time.hours"));
+        if (h == 1) time += String.format("%d %s ", h, config.getString("jail.time.hour"));
+        if (h > 1) time += String.format("%d %s ", h, config.getString("jail.time.hours"));
 
-        if (min == 1) time += String.format("%d %s", h, config.getString("jail.time.minute"));
-        if (min > 1) time += String.format("%d %s", h, config.getString("jail.time.minutes"));
+        if (min == 1) time += String.format("%d %s ", h, config.getString("jail.time.minute"));
+        if (min > 1) time += String.format("%d %s ", h, config.getString("jail.time.minutes"));
 
         if (s > 0) time += String.format("%d %s", s, config.getString("jail.time.seconds"));
 

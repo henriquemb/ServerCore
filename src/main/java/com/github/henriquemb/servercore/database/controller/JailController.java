@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class JailController {
-    private static final EntityManager em = Main.getMain().getDbCoonection();
+    private static final EntityManager em = Main.getMain().getDbConnection();
 
     public void create(Jail jail) {
         try {
