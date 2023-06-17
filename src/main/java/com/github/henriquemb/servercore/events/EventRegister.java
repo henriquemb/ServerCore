@@ -12,9 +12,7 @@ public class EventRegister {
         pm.registerEvents(new PlayerFlyListener(), plugin);
         pm.registerEvents(new GodListener(), plugin);
         pm.registerEvents(new CpsListener(), plugin);
-
-        if (Main.getMain().getDbConnection() != null)
-            pm.registerEvents(new JailListener(), plugin);
+        pm.registerEvents(new JailListener(), plugin);
 
         if (Main.getMain().getServer().getPluginManager().getPlugin("Vulcan") != null)
             pm.registerEvents(new AdminModeListener(), plugin);

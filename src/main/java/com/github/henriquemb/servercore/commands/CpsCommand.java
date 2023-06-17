@@ -9,8 +9,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.text.DecimalFormat;
-
 @CommandAlias("cps") @CommandPermission("servercore.cps")
 public class CpsCommand extends BaseCommand {
     private final Main pl = Main.getMain();

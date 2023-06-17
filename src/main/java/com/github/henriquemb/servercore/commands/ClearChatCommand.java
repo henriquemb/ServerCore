@@ -1,7 +1,10 @@
 package com.github.henriquemb.servercore.commands;
 
 import co.aikar.commands.BaseCommand;
-import co.aikar.commands.annotation.*;
+import co.aikar.commands.annotation.CatchUnknown;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.CommandPermission;
+import co.aikar.commands.annotation.Default;
 import com.github.henriquemb.servercore.Main;
 import com.github.henriquemb.servercore.Model;
 import me.clip.placeholderapi.PlaceholderAPI;
@@ -15,7 +18,7 @@ public class ClearChatCommand extends BaseCommand {
 
     @Default @CatchUnknown
     public void onCommand(Player p) {
-        m.broadcastMessage("\n".repeat(500));
+        m.broadcastMessage("\n".repeat(2000));
 
         m.broadcastMessage(PlaceholderAPI.setPlaceholders(p, config.getString("clearchat")));
     }

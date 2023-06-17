@@ -14,7 +14,7 @@ public class BroadcastCommand extends BaseCommand {
     private final Model m = Main.getModel();
 
     @Default @Syntax("<mensagem>")
-    public void onBroadCast(Player p, String str) {
+    public void onCommand(Player p, String str) {
         m.broadcastMessage(str);
     }
 }

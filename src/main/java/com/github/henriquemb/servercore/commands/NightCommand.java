@@ -27,7 +27,7 @@ public class NightCommand extends BaseCommand {
         }
 
         m.getNight().add(p);
-        p.addPotionEffect(PotionEffectType.NIGHT_VISION.createEffect(999999, 4));
+        p.addPotionEffect(PotionEffectType.NIGHT_VISION.createEffect(-1, 10));
         m.sendMessage(p, PlaceholderAPI.setPlaceholders(p, config.getString("night.enabled")));
     }
 }

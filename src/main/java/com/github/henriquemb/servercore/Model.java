@@ -1,12 +1,17 @@
 package com.github.henriquemb.servercore;
 
-import de.themoep.minedown.MineDown;
+import com.github.henriquemb.servercore.structure.JailStructure;
 import lombok.Data;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 @Data
 public class Model {
@@ -16,17 +21,15 @@ public class Model {
     private Set<Player> night = new HashSet<>();
     private Map<Player, Integer> cps = new HashMap<>();
     private Map<Player, ItemStack[]> adminMode = new HashMap<>();
+    private Map<Player, JailStructure> jails = new HashMap<>();
 
     public void sendMessage(Player player, String message) {
-        player.spigot().sendMessage(MineDown.parse(message));
-    }
-
-    public String parseMessage(String message) {
-        return Arrays.toString(MineDown.parse(message));
+        player.sendMessage(Component.text(ChatColor.translateAlternateColorCodes('&', message)));
     }
 
     public void broadcastMessage(String message) {
         Bukkit.getOnlinePlayers().forEach(player ->
-                player.spigot().sendMessage(MineDown.parse(message)));
+                player.sendMessage(Component.text(ChatColor.translateAlternateColorCodes('&', message)))
+        );
     }
 }

@@ -2,6 +2,7 @@ package com.github.henriquemb.servercore.events;
 
 import com.github.henriquemb.servercore.Main;
 import com.github.henriquemb.servercore.Model;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,7 +15,7 @@ public class PlayerFlyListener implements Listener {
     public void onFly(PlayerToggleFlightEvent e) {
         Player p = e.getPlayer();
 
-        if (!p.hasPermission("servercore.fly")) {
+        if (!p.hasPermission("servercore.fly") && p.getGameMode() == GameMode.SURVIVAL) {
             p.setFlying(false);
             p.setAllowFlight(false);
             m.getFly().remove(p);

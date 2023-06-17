@@ -5,11 +5,8 @@ import co.aikar.commands.annotation.*;
 import com.github.henriquemb.servercore.Main;
 import com.github.henriquemb.servercore.Model;
 import me.clip.placeholderapi.PlaceholderAPI;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 @CommandAlias("invsee") @CommandPermission("servercore.invsee")
 public class InvSeeCommand extends BaseCommand {

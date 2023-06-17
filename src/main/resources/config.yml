@@ -1,35 +1,11 @@
+join-message: true
 spawn-command-on-join: false
-database:
-  mysql: false
-  host: ""
-  port: ""
-  name: ""
-  username: ""
-  password: ""
-  ssl: false
-adminmode:
-  items:
-    rotate:
-      name: "&eRotacionar"
-      id: 'SLIME_BALL'
-    jail:
-      name: "&cPrender"
-      id: 'NETHER_STAR'
-    vanish:
-      name: "&9Vanish"
-      id: 'POTION'
-    cps:
-      name: "&aCPS"
-      id: 'BLAZE_ROD'
-    glass:
-      name: "&cAdmin Mode"
-      id: 'STAINED_GLASS_PANE'
-      data: 15
+cage-height: 250
+
 list:
   show-empty: false
   ignore:
-    - 'zToxicDeath_'
-    - '_xB0ss'
+    - 'zT0xic_'
   roles:
     admin:
       permission: 'servercore.list.administrador'
@@ -46,3 +22,22 @@ list:
     youtuber:
       permission: 'servercore.list.youtuber'
       name: 'Youtuber'
+
+adminmode:
+  items:
+    rotate:
+      name: "&eRotacionar"
+      id: 'SLIME_BALL'
+    jail:
+      name: "&cPrender"
+      id: 'NETHER_STAR'
+    vanish:
+      name: "&9Vanish"
+      id: 'POTION'
+    cps:
+      name: "&aCPS"
+      id: 'BLAZE_ROD'
+    empty:
+      name: "&cAdmin Mode"
+      id: 'RED_STAINED_GLASS_PANE'
+      data: 15

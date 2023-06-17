@@ -30,7 +30,7 @@ public class VanishCommand extends BaseCommand {
         } else {
             m.sendMessage(p, PlaceholderAPI.setPlaceholders(p, config.getString("vanish.enabled")));
             m.getVanish().add(p);
-            p.addPotionEffect(PotionEffectType.INVISIBILITY.createEffect(999999, 4));
+            p.addPotionEffect(PotionEffectType.INVISIBILITY.createEffect(-1, 4));
             Bukkit.getOnlinePlayers().forEach(all -> {
                 if (!all.hasPermission("servercore.vanish.bypass")) {
                     all.hidePlayer(pl, p);

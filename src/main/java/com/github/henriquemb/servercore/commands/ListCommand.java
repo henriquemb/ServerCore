@@ -6,7 +6,6 @@ import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
 import com.github.henriquemb.servercore.Main;
 import com.github.henriquemb.servercore.Model;
-import de.themoep.minedown.MineDown;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -48,18 +47,18 @@ public class ListCommand extends BaseCommand {
                     String group = pl.getConfig().getString("list.roles." + key + ".name");
 
                     if (pl.getConfig().getBoolean("list.show-empty")) {
-                        p.spigot().sendMessage(names.isEmpty()
-                                ? (MineDown.parse(String.format("&cNão tem nenhum %s online.", group)))
-                                : (MineDown.parse(String.format("&e%s(s): &9%s", group,
+                        m.sendMessage(p, names.isEmpty()
+                                ? String.format("&cNão tem nenhum %s online.", group)
+                                : String.format("&e%s(s): &9%s", group,
                                 names.stream().map(Object::toString)
-                                        .collect(Collectors.joining(", "))))));
+                                        .collect(Collectors.joining(", "))
+                        ));
                     } else {
                         if (!names.isEmpty())
-                            p.spigot().sendMessage(
-                                    (MineDown.parse(String.format("&e%s(s): &9%s", group,
-                                            names.stream().map(Object::toString)
-                                                    .collect(Collectors.joining(", ")))))
-                            );
+                            m.sendMessage(p, String.format("&e%s(s): &9%s", group,
+                                    names.stream().map(Object::toString)
+                                            .collect(Collectors.joining(", "))
+                            ));
                     }
 
                 });

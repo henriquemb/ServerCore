@@ -1,6 +1,7 @@
 package com.github.henriquemb.servercore.utils;
 
 import com.github.henriquemb.servercore.Main;
+import net.kyori.adventure.text.Component;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -15,7 +16,6 @@ import java.util.Map;
 public class AdminModeItems {
     private final Map<String, ItemStack> items = new HashMap<>();
     private static final FileConfiguration config = Main.getMain().getConfig();
-    private static final FileConfiguration messages = Main.getMain().getMessages();
 
     private String formatString(String str) {
         return ChatColor.translateAlternateColorCodes('&', str);
@@ -24,7 +24,7 @@ public class AdminModeItems {
     public AdminModeItems() {
         ItemStack rotate = createItem("rotate");
 
-        ItemStack jail = createItem("freeze");
+        ItemStack jail = createItem("jail");
 
         ItemStack vanish = createItem("vanish");
 
@@ -40,16 +40,13 @@ public class AdminModeItems {
     }
 
     private ItemStack createItem(String name) {
-        ItemStack item = new ItemStack(Material.getMaterial(config.getString(String.format("adminmode.items.%s.id", name))));
-
-        if (config.getString(String.format("adminmode.items.%s.id", name)).equalsIgnoreCase("STAINED_GLASS_PANE"))
-            item.setDurability((short) config.getInt(String.format("adminmode.items.%s.data", name)));
+        ItemStack item = new ItemStack(Material.valueOf(config.getString(String.format("adminmode.items.%s.id", name))));
 
         item.addUnsafeEnchantment(Enchantment.DURABILITY, 3);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(formatString(config.getString(String.format("adminmode.items.%s.name", name))));
+        meta.displayName(Component.text(formatString(config.getString(String.format("adminmode.items.%s.name", name)))));
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        meta.setLore(null);
+        meta.lore(null);
         item.setItemMeta(meta);
 
         return item;

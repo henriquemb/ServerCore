@@ -16,9 +16,17 @@ public class ClearCommand extends BaseCommand {
     @Default @CommandCompletion("@players") @Syntax("[jogador]")
     public void onCommand(Player p, @Flags("other") @Optional Player t) {
         if (t == null) {
+            if (m.getAdminMode().containsKey(p)) {
+                p.performCommand("adminmode");
+            }
+
             p.getInventory().clear();
             m.sendMessage(p, PlaceholderAPI.setPlaceholders(p, config.getString("clear.success")));
         } else {
+            if (m.getAdminMode().containsKey(t)) {
+                t.performCommand("adminmode");
+            }
+
             t.getInventory().clear();
             m.sendMessage(p, PlaceholderAPI.setPlaceholders(t, config.getString("clear.other.success")));
             m.sendMessage(t, PlaceholderAPI.setPlaceholders(p, config.getString("clear.other.alert")));
