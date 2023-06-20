@@ -5,6 +5,7 @@ import com.github.henriquemb.servercore.Model;
 import com.github.henriquemb.servercore.structure.JailStructure;
 import com.github.henriquemb.servercore.utils.TimeUtils;
 import me.clip.placeholderapi.PlaceholderAPI;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,8 +20,9 @@ import java.util.TimeZone;
 
 public class PlayerQuitListener implements Listener {
     private final Model m = Main.getModel();
+    private static final FileConfiguration messages = Main.getMain().getMessages();
 
-    private static final FileConfiguration config = Main.getMain().getMessages();
+    private static final FileConfiguration config = Main.getMain().getConfig();
 
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
@@ -28,6 +30,12 @@ public class PlayerQuitListener implements Listener {
 
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+        if (config.getBoolean("quit-message")) {
+            if (!p.hasPermission("servercore.quit.bypass")) {
+                m.broadcastMessage(PlaceholderAPI.setPlaceholders(p, messages.getString("quit-message")));
+            }
+        }
 
         JailStructure jail = m.getJails().get(p);
 
@@ -38,7 +46,7 @@ public class PlayerQuitListener implements Listener {
 
             Bukkit.getOnlinePlayers().forEach(player -> {
                 if (player.hasPermission("servercore.jail.use")) {
-                    String msg = config.getString("jail.disconnect");
+                    String msg = messages.getString("jail.disconnect");
                     msg = msg.replace("%sc_time%", TimeUtils.millisecondsToStringTime(System.currentTimeMillis() - jail.getTimestamp()));
 
                     m.sendMessage(player, PlaceholderAPI.setPlaceholders(p, msg));

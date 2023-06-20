@@ -103,4 +103,8 @@ teleport:
 vanish:
   enabled: "&aVanish &eativado &acom sucesso."
   disabled: "&aVanish &edesativado &acom sucesso."
-join-message: "&7[&a+&7] &e%player_name%&a entrou"
+join-message: "&7[&a+&7] &e%player_name%&a entrou."
+quit-message: "&7[&c-&7] &e%player_name%&a saiu."
+first-access-message: "&7[&a+&7] &e%player_name% entrou pela primeira vez no servidor."
+join-private-message:
+  - "&e%player_name% seja bem vindo ao servidor."

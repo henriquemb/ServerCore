@@ -9,6 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.util.List;
+
 public class PlayerJoinListener implements Listener {
     private final Main pl = Main.getMain();
     private final Model m = Main.getModel();
@@ -25,12 +27,34 @@ public class PlayerJoinListener implements Listener {
             });
         }
 
-        if (config.getBoolean("join-message")) {
-            e.setJoinMessage(null);
+        if (!p.hasPlayedBefore() && config.getBoolean("first-access-message")) {
+            e.joinMessage(null);
+
+            m.sendMessage(p, PlaceholderAPI.setPlaceholders(p, messages.getString("first-access-message")));
+        }
+
+        if (p.hasPlayedBefore() && config.getBoolean("join-message")) {
+            e.joinMessage(null);
 
             if (!p.hasPermission("servercore.join.bypass")) {
                 m.broadcastMessage(PlaceholderAPI.setPlaceholders(p, messages.getString("join-message")));
             }
+        }
+
+        if (config.getBoolean("join-private-message")) {
+            e.joinMessage(null);
+
+            StringBuilder str = new StringBuilder();
+            List<String> msg = messages.getStringList("join-private-message");
+
+            for (int i = 0; i < msg.size(); i++) {
+                str.append(msg.get(i));
+
+                if (i < msg.size() - 1)
+                    str.append("\n");
+            }
+
+            m.sendMessage(p, PlaceholderAPI.setPlaceholders(p, str.toString()));
         }
 
         if (pl.getConfig().getBoolean("spawn-command-on-join")) p.performCommand("spawn");

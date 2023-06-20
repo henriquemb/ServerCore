@@ -4,7 +4,6 @@ import com.github.henriquemb.servercore.Main;
 import com.github.henriquemb.servercore.Model;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 

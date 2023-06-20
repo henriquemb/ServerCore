@@ -1,6 +1,10 @@
-join-message: true
 spawn-command-on-join: false
 cage-height: 250
+
+join-message: true
+quit-message: true
+first-access-message: true
+join-private-message: true
 
 list:
   show-empty: false
